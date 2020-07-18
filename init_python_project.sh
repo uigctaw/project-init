@@ -8,7 +8,9 @@ if [[ ${agreed:-yes} == yes ]]; then
     touch $project/__init__.py
     mkdir tests
     mkdir tests/unit
+    touch tests/unit/__init__.py
     mkdir tests/integration
+    touch tests/integration/__init__.py
 fi
 
 read -p 'Create Python virtual environment? [yes]' agreed
