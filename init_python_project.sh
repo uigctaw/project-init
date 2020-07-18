@@ -26,7 +26,7 @@ if [[ ${agreed:-yes} == yes ]]; then
 fi
 
 read -p 'Initialize Poetry toml file? [yes]' agreed_poetry
-if [[ ${agreed:-yes} == yes_poetry ]]; then
+if [[ ${agreed:-yes} == yes ]]; then
     poetry init
 
     if [[ -z $venv_folder ]]; then
