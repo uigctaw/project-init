@@ -20,11 +20,6 @@ if [[ ${agreed:-yes} == yes ]]; then
     venv_full_path=$venv_folder/bin/python
     read -p 'Please enter python version [python3.8]' python_name
     eval ${python_name:-python3.8} -m venv $venv_folder
-
-    read -p 'Create symlink "py" to virtual env Python executable?' py_sl
-    if [[ -z $py_sl ]]; then
-        ln -s $venv_full_path py
-    fi
 fi
 
 read -p 'Initialize Poetry toml file? [yes]' agreed_poetry
@@ -33,6 +28,7 @@ if [[ ${agreed:-yes} == yes ]]; then
 
     if [[ -z $venv_folder ]]; then
         question="Change Poetry's virtual env to the one created before?"
+        question="$question ($venv_full_path)"
         question="$question [yes]"
         read -p "$question" agreed 
         if [[ ${agreed:-yes} == yes ]]; then
@@ -54,6 +50,7 @@ if [[ ${agreed:-yes} == yes ]]; then
 dist
 *.egg-info
 **/__pycache__
+res
 EOM
 
 cat .gitignore
