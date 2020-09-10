@@ -26,7 +26,7 @@ read -p 'Initialize Poetry toml file? [yes]' agreed_poetry
 if [[ ${agreed:-yes} == yes ]]; then
     poetry init
 
-    if [[ -z $venv_folder ]]; then
+    if [[ ! (-z $venv_folder) ]]; then
         question="Change Poetry's virtual env to the one created before?"
         question="$question ($venv_full_path)"
         question="$question [yes]"
