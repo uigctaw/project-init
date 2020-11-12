@@ -18,8 +18,8 @@ if [[ ${agreed:-yes} == yes ]]; then
     read -p 'Please enter folder name [.venv]' venv_folder
     venv_folder=${venv_folder:-.venv}
     venv_full_path=$venv_folder/bin/python
-    read -p 'Please enter python version [python3.8]' python_name
-    eval ${python_name:-python3.8} -m venv $venv_folder
+    read -p 'Please enter python version [python3.9]' python_name
+    eval ${python_name:-python3.9} -m venv $venv_folder
 fi
 
 read -p 'Initialize Poetry toml file? [yes]' agreed_poetry
@@ -50,7 +50,6 @@ if [[ ${agreed:-yes} == yes ]]; then
 dist
 *.egg-info
 **/__pycache__
-res
 EOM
 
 cat .gitignore
@@ -82,9 +81,9 @@ EOM
         chmod u+x bandit.sh 
 
         if [[ ${agreed_poetry:-yes} == yes ]]; then
-            poetry add flake8
-            poetry add mypy
-            poetry add bandit
+            poetry add --dev flake8
+            poetry add --dev mypy
+            poetry add --dev bandit
         fi
     fi
 fi
