@@ -1,6 +1,6 @@
 # project-init
 
-Script(s) for initilizing personal projects.
+Script(s) for initializing personal projects.
 
 ## Usage
 
